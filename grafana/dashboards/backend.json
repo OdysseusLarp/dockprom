@@ -1,46 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "panel",
-      "id": "gauge",
-      "name": "Gauge",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "6.2.2"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "singlestat",
-      "name": "Singlestat",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -57,145 +15,95 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": null,
+  "id": 5,
   "links": [],
   "panels": [
     {
+      "aliasColors": {},
+      "bars": false,
       "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "${DS_PROMETHEUS}",
-      "format": "none",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fill": 1,
       "gridPos": {
-        "h": 3,
-        "w": 4,
+        "h": 7,
+        "w": 11,
         "x": 0,
         "y": 0
       },
-      "id": 2,
-      "interval": null,
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
+      "nullPointMode": "null",
       "options": {},
+      "percentage": false,
       "pluginVersion": "6.2.2",
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
-          "expr": "socket_io_connected",
+          "expr": "nodejs_eventloop_lag_seconds",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
         }
       ],
-      "thresholds": "",
+      "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
-      "title": "Socket.IO Clients",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "avg"
-    },
-    {
-      "datasource": "${DS_PROMETHEUS}",
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 4,
-        "y": 0
+      "title": "Node event loop latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
       },
-      "id": 7,
-      "links": [],
-      "options": {
-        "fieldOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "defaults": {
-            "max": 100,
-            "min": 0
-          },
-          "mappings": [],
-          "override": {},
-          "thresholds": [
-            {
-              "color": "green",
-              "index": 0,
-              "value": null
-            },
-            {
-              "color": "red",
-              "index": 1,
-              "value": 80
-            }
-          ],
-          "values": false
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
         },
-        "orientation": "horizontal",
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "6.2.2",
-      "targets": [
         {
-          "expr": "sum(rate(http_requests_total[5m])) by (instance)",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "refId": "A"
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Request rate",
-      "type": "gauge"
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {},
@@ -203,13 +111,13 @@
       "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 7,
-        "w": 11,
-        "x": 0,
-        "y": 3
+        "w": 13,
+        "x": 11,
+        "y": 0
       },
       "id": 3,
       "legend": {
@@ -294,23 +202,25 @@
       "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 7,
-        "w": 9,
+        "w": 24,
         "x": 0,
-        "y": 10
+        "y": 7
       },
-      "id": 4,
+      "id": 2,
       "legend": {
+        "alignAsTable": true,
         "avg": false,
-        "current": false,
+        "current": true,
         "max": false,
-        "min": false,
-        "show": false,
+        "min": true,
+        "rightSide": true,
+        "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -328,9 +238,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "nodejs_eventloop_lag_seconds",
+          "expr": "socket_io_connected",
           "format": "time_series",
           "intervalFactor": 1,
+          "legendFormat": "Connected clients",
           "refId": "A"
         }
       ],
@@ -338,7 +249,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Node event loop latency",
+      "title": "Connected Socket.IO Clients",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -354,7 +265,7 @@
       },
       "yaxes": [
         {
-          "format": "s",
+          "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -381,13 +292,13 @@
       "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "fill": 1,
       "gridPos": {
         "h": 7,
-        "w": 15,
-        "x": 9,
-        "y": 10
+        "w": 19,
+        "x": 0,
+        "y": 14
       },
       "id": 5,
       "legend": {
@@ -465,6 +376,59 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "datasource": "Prometheus",
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 19,
+        "y": 14
+      },
+      "id": 7,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "max": 100,
+            "min": 0
+          },
+          "mappings": [],
+          "override": {},
+          "thresholds": [
+            {
+              "color": "green",
+              "index": 0,
+              "value": null
+            },
+            {
+              "color": "red",
+              "index": 1,
+              "value": 80
+            }
+          ],
+          "values": false
+        },
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.2.2",
+      "targets": [
+        {
+          "expr": "sum(rate(http_requests_total[5m])) by (instance)",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Request rate",
+      "type": "gauge"
     }
   ],
   "schemaVersion": 18,

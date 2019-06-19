@@ -3,6 +3,9 @@ version: '2.1'
 networks:
   monitor-net:
     driver: bridge
+  odysseus:
+    external:
+      name: odysseus-backend_odysseus-net
 
 volumes:
     prometheus_data: {}
@@ -28,6 +31,7 @@ services:
       - 9090
     networks:
       - monitor-net
+      - odysseus
     labels:
       org.label-schema.group: "monitoring"
 
